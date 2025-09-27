@@ -27,69 +27,72 @@
     }
 
     #startBtn {
-      margin-top: 20px; padding: 12px 20px;
-      font-size: 1em; border: none; border-radius: 5px;
-      background-color: #ff3366; color: white; cursor: pointer;
+      margin-top: 20px; padding: 10px; background: #ff4081; border: none;
+      border-radius: 5px; color: white; font-size: 1.2em; cursor: pointer;
+      align-self: center;
     }
   </style>
 </head>
 <body>
-
-  <!-- Loader com botão -->
-  <div class="arjs-loader" id="loadingText">
+  <!-- Loader com texto -->
+  <div class="arjs-loader" id="loader">
     <div>
-      <strong>A Noiva do Poço</strong><br><br>
-      Séculos atrás, uma jovem chamada Elira foi prometida em casamento a um homem cruel e poderoso, contra sua vontade. Na véspera da cerimônia, ela tentou fugir, mas foi capturada e levada de volta. Como punição, foi amarrada com seu vestido de noiva e lançada viva dentro de um poço profundo.<br><br>
-      A água gelada sufocou seus gritos, mas sua fúria não morreu com ela. Dizem que, em noites silenciosas, o som de correntes arrastando ecoa do fundo do poço, e a figura de uma mulher surge, flutuando, com o vestido rasgado e encharcado, os cabelos desgrenhados e a pele cinzenta.<br><br>
-      Elira não busca apenas vingança contra quem a matou — ela arrasta qualquer um que se aproxime do poço para o fundo, onde suas mãos frias seguram até que o último suspiro se perca.<br><br>
-      Hoje, o poço está coberto por pedras, mas viajantes contam que ainda se ouvem sussurros femininos à noite:<br>
-      “Você me deixaria no escuro também?”
+      <h2>A Noiva do Poço</h2>
+      <p>
+        Séculos atrás, uma jovem chamada Elira foi prometida em casamento a um homem cruel e poderoso, contra sua vontade.
+        Na véspera da cerimônia, ela tentou fugir, mas foi capturada e levada de volta. Como punição, foi amarrada com seu
+        vestido de noiva e lançada viva dentro de um poço profundo.
+      </p>
+      <p>
+        A água gelada sufocou seus gritos, e a escuridão do poço engoliu sua última esperança de liberdade. 
+        Desde então, dizem que sua alma ainda habita o local, vagando em busca de justiça e vingança.
+      </p>
+      <p>
+        Reza a lenda que, em noites silenciosas, quem se aproxima do poço pode ouvir o arrastar do vestido encharcado e sentir 
+        um frio repentino no ar. Aqueles que ousam olhar para dentro afirmam ver seu rosto pálido emergindo das sombras, 
+        os olhos cheios de dor e fúria.
+      </p>
+      <p>
+        Agora, com a realidade aumentada, você poderá testemunhar a presença de Elira, a Noiva do Poço. 
+        Mas cuidado: ao encarar seus olhos, talvez ela nunca mais te deixe ir...
+      </p>
     </div>
-    <button id="startBtn">Abrir Câmera</button>
+    <button id="startBtn">Iniciar Experiência</button>
   </div>
 
-  <!-- Cena AR vazia -->
-  <a-scene id="arScene" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded>
-    <!-- Marcador NFT -->
+  <!-- Cena AR -->
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  >
+    <!-- Marcador -->
     <a-nft
-      id="nftMarker"
       type="nft"
-      url="https://juliamaciels.github.io/EPA/marcadores/noiva1"
+      url="marcadores/noiva1"
       smooth="true"
       smoothCount="10"
-      smoothTolerance=".01"
+      smoothTolerance="0.01"
       smoothThreshold="5"
     >
-      <!-- Modelo 3D Ghost Daughter -->
+      <!-- Modelo 3D -->
       <a-entity
-        gltf-model="https://juliamaciels.github.io/EPA/modelos/ghost_daughter.glb"
+        gltf-model="modelos/ghost_daughter.glb"
         scale="1.5 1.5 1.5"
         rotation="-90 0 0"
         position="0 0 0"
       ></a-entity>
     </a-nft>
 
-    <!-- Câmera -->
     <a-entity camera></a-entity>
   </a-scene>
 
   <script>
-    const btn = document.getElementById('startBtn');
-    const loader = document.getElementById('loadingText');
-    const scene = document.getElementById('arScene');
+    const loader = document.getElementById('loader');
+    const startBtn = document.getElementById('startBtn');
 
-    btn.addEventListener('click', async () => {
-      // Esconde o loader
+    startBtn.addEventListener('click', () => {
       loader.style.display = 'none';
-
-      // Adiciona o AR.js dinamicamente
-      scene.setAttribute('arjs', 'trackingMethod: best; sourceType: webcam; debugUIEnabled: false;');
-
-      // Inicializa a câmera
-      const arToolkitSource = scene.systems['arjs'].arToolkitSource;
-      if (arToolkitSource && !arToolkitSource.domElement.srcObject) {
-        await arToolkitSource.domElement.play();
-      }
     });
   </script>
 </body>
