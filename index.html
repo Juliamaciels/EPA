@@ -27,20 +27,13 @@
     }
 
     #startBtn {
-<<<<<<< HEAD
       margin-top: 20px; padding: 12px 20px;
       font-size: 1em; border: none; border-radius: 5px;
       background-color: #ff3366; color: white; cursor: pointer;
-=======
-      margin-top: 20px; padding: 10px; background: #ff4081; border: none;
-      border-radius: 5px; color: white; font-size: 1.2em; cursor: pointer;
-      align-self: center;
->>>>>>> 47ee96a5baddd6f4d5fff1bbfe698101665a1910
     }
   </style>
 </head>
 <body>
-<<<<<<< HEAD
 
   <!-- Loader com botão -->
   <div class="arjs-loader" id="loadingText">
@@ -70,52 +63,6 @@
       <!-- Modelo 3D ajustado -->
       <a-entity
         gltf-model="https://juliamaciels.github.io/EPA/modelos/ghost_death.glb"
-=======
-  <!-- Loader com texto -->
-  <div class="arjs-loader" id="loader">
-    <div>
-      <h2>A Noiva do Poço</h2>
-      <p>
-        Séculos atrás, uma jovem chamada Elira foi prometida em casamento a um homem cruel e poderoso, contra sua vontade.
-        Na véspera da cerimônia, ela tentou fugir, mas foi capturada e levada de volta. Como punição, foi amarrada com seu
-        vestido de noiva e lançada viva dentro de um poço profundo.
-      </p>
-      <p>
-        A água gelada sufocou seus gritos, e a escuridão do poço engoliu sua última esperança de liberdade. 
-        Desde então, dizem que sua alma ainda habita o local, vagando em busca de justiça e vingança.
-      </p>
-      <p>
-        Reza a lenda que, em noites silenciosas, quem se aproxima do poço pode ouvir o arrastar do vestido encharcado e sentir 
-        um frio repentino no ar. Aqueles que ousam olhar para dentro afirmam ver seu rosto pálido emergindo das sombras, 
-        os olhos cheios de dor e fúria.
-      </p>
-      <p>
-        Agora, com a realidade aumentada, você poderá testemunhar a presença de Elira, a Noiva do Poço. 
-        Mas cuidado: ao encarar seus olhos, talvez ela nunca mais te deixe ir...
-      </p>
-    </div>
-    <button id="startBtn">Iniciar Experiência</button>
-  </div>
-
-  <!-- Cena AR -->
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <!-- Marcador NFT gerado a partir da imagem noiva1.jpeg -->
-    <a-nft
-      type="nft"
-      url="marcadores/noiva1"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance="0.01"
-      smoothThreshold="5"
-    >
-      <!-- Modelo 3D -->
-      <a-entity
-        gltf-model="modelos/ghost_daughter.glb"
->>>>>>> 47ee96a5baddd6f4d5fff1bbfe698101665a1910
         scale="1.5 1.5 1.5"
         rotation="-90 0 0"
         position="0 0 0"
@@ -127,7 +74,6 @@
   </a-scene>
 
   <script>
-<<<<<<< HEAD
     const btn = document.getElementById('startBtn');
     const loader = document.getElementById('loadingText');
     const scene = document.getElementById('arScene');
@@ -144,13 +90,6 @@
       if (arToolkitSource && !arToolkitSource.domElement.srcObject) {
         await arToolkitSource.domElement.play();
       }
-=======
-    const loader = document.getElementById('loader');
-    const startBtn = document.getElementById('startBtn');
-
-    startBtn.addEventListener('click', () => {
-      loader.style.display = 'none';
->>>>>>> 47ee96a5baddd6f4d5fff1bbfe698101665a1910
     });
   </script>
 </body>
